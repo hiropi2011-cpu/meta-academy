@@ -91,7 +91,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.24); }
 /* 文字とボタンが左右から順に中央へ（最初の1回だけ） */
 .hero h1 .ln, .hero-lead .ln { display: block; }
-.fx { opacity: 0; transition: opacity .9s ease var(--d, 0s), transform 1s cubic-bezier(.2, .7, .2, 1) var(--d, 0s); will-change: transform, opacity; }
+.fx { opacity: 0; transition: opacity 1.2s ease var(--d, 0s), transform 1.4s cubic-bezier(.2, .7, .2, 1) var(--d, 0s); will-change: transform, opacity; }
 .fx.from-l { transform: translateX(-90px); }
 .fx.from-r { transform: translateX(90px); }
 .fx.from-b { transform: translateY(36px) scale(.97); }
