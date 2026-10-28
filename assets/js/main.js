@@ -44,6 +44,14 @@
 		if (p && p.catch) { p.catch(function () { /* 自動再生が拒否されたら写真のまま */ }); }
 	}
 
+	// ヒーローの文字とボタン：再生直後（約1秒後）から左右に順に中央へ。最初の1回だけ
+	var hero = document.getElementById('hero');
+	if (hero) {
+		var startHero = function () { hero.classList.add('ready'); };
+		if (reduce) { startHero(); }
+		else { window.setTimeout(startHero, 1000); }
+	}
+
 	// 画面に入ったら、ふわっと表示
 	var targets = document.querySelectorAll('.sec-head, .feature, .support-item, .flow-steps li, .course, .split, .student-card, .club, .contact-card');
 	targets.forEach(function (el) { el.classList.add('reveal'); });
