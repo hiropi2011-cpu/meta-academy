@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css?v=202610280542">
+<link rel="stylesheet" href="assets/css/style.css?v=202610280549">
 </head>
 <body id="top" class="home">
 
@@ -56,9 +56,9 @@
 <!-- ===== ヒーロー ===== -->
 <section class="hero" id="hero">
 	<div class="hero-bg">
-		<img src="assets/img/hero_poster.jpg?v=202610280542" alt="" class="hero-still">
-		<video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero_poster.jpg?v=202610280542" aria-hidden="true">
-			<source src="assets/img/hero_video.mp4?v=202610280542" type="video/mp4">
+		<img src="assets/img/hero_poster.jpg?v=202610280549" alt="" class="hero-still">
+		<video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero_poster.jpg?v=202610280549" aria-hidden="true">
+			<source src="assets/img/hero_video.mp4?v=202610280549" type="video/mp4">
 		</video>
 	</div>
 	<div class="hero-inner" id="heroInner">
@@ -168,12 +168,25 @@
 		</div>
 		<div class="course-visual">
 			<div class="cv-stage">
-				<img src="assets/img/course_tools.jpg?v=202610280542" alt="ドローン・VR・マイク・タブレット・カメラ・鍵盤など、コースで使う道具">
+				<img src="assets/img/course_tools.jpg?v=202610280549" alt="ドローン・VR・マイク・タブレット・カメラ・鍵盤など、コースで使う道具">
 				<svg class="cv-label" viewBox="0 0 1344 390" aria-hidden="true">
-					<defs><linearGradient id="cvg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1D1E85"/><stop offset="1" stop-color="#3A47B8"/></linearGradient></defs>
-					<text x="645" y="178" text-anchor="middle" font-family="Quicksand, 'Noto Sans JP', sans-serif" font-weight="700" font-size="76" letter-spacing="2" fill="url(#cvg)">AI</text>
-					<rect x="612" y="192" width="66" height="4" rx="2" fill="#83D0F4"/>
-					<text x="645" y="252" text-anchor="middle" font-family="Quicksand, 'Noto Sans JP', sans-serif" font-weight="700" font-size="50" letter-spacing="2" fill="url(#cvg)">SNS</text>
+					<defs>
+						<linearGradient id="cvScreen" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#232596"/><stop offset="1" stop-color="#0B0D3F"/></linearGradient>
+						<radialGradient id="cvGlow" cx="0.85" cy="0.1" r="0.7"><stop offset="0" stop-color="#83D0F4" stop-opacity="0.55"/><stop offset="1" stop-color="#83D0F4" stop-opacity="0"/></radialGradient>
+						<linearGradient id="cvText" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#BFE7FA"/></linearGradient>
+						<clipPath id="cvClip"><rect x="574" y="97" width="137" height="176" rx="7"/></clipPath>
+					</defs>
+					<g clip-path="url(#cvClip)">
+						<rect x="574" y="97" width="137" height="176" fill="url(#cvScreen)"/>
+						<rect x="574" y="97" width="137" height="176" fill="url(#cvGlow)"/>
+						<polygon points="574,97 650,97 574,200" fill="#FFFFFF" fill-opacity="0.06"/>
+						<g transform="translate(586,106) scale(0.2) translate(-22,-15)"><circle cx="35.06" cy="55.4" r="13.1" fill="#83D0F4"/><path fill="#FFFFFF" d="M42.131 28.373L61.171 61.873A13.1 13.1 0 0 0 83.949 48.927L64.909 15.427A13.1 13.1 0 0 0 42.131 28.373ZM80.351 28.373L99.391 61.873A13.1 13.1 0 0 0 122.169 48.927L103.129 15.427A13.1 13.1 0 0 0 80.351 28.373Z"/></g>
+						<text x="588" y="196" font-family="Quicksand, 'Noto Sans JP', sans-serif" font-weight="700" font-size="60" letter-spacing="1" fill="url(#cvText)">AI</text>
+						<text x="589" y="236" font-family="Quicksand, 'Noto Sans JP', sans-serif" font-weight="600" font-size="33" letter-spacing="3" fill="#83D0F4">SNS</text>
+						<rect x="589" y="250" width="36" height="3" rx="1.5" fill="#83D0F4" fill-opacity="0.9"/>
+						<rect x="630" y="250" width="14" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.35"/>
+						<rect x="649" y="250" width="8" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.2"/>
+					</g>
 				</svg>
 			</div>
 			<p class="cap">生成AIからドローン、声優まで。「好き」が、仕事の入口になる。</p>
@@ -386,6 +399,6 @@
 </footer>
 
 <a href="#top" class="to-top" id="toTop" aria-label="ページの先頭へ"><i class="fa-solid fa-chevron-up"></i></a>
-<script src="assets/js/main.js?v=202610280542"></script>
+<script src="assets/js/main.js?v=202610280549"></script>
 </body>
 </html>
