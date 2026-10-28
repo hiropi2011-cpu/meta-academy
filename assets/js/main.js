@@ -33,6 +33,17 @@
 		menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
 	}
 
+	// ヒーローの動画：再生できたら写真から動画へ切り替える（再生できない環境は写真のまま）
+	var heroVideo = document.getElementById('heroVideo');
+	var heroBg = heroVideo && heroVideo.parentNode;
+	var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (heroVideo && heroBg && !reduce) {
+		var showVideo = function () { heroBg.classList.add('video-on'); };
+		heroVideo.addEventListener('playing', showVideo, { once: true });
+		var p = heroVideo.play();
+		if (p && p.catch) { p.catch(function () { /* 自動再生が拒否されたら写真のまま */ }); }
+	}
+
 	// 画面に入ったら、ふわっと表示
 	var targets = document.querySelectorAll('.sec-head, .feature, .support-item, .flow-steps li, .course, .split, .student-card, .club, .contact-card');
 	targets.forEach(function (el) { el.classList.add('reveal'); });
