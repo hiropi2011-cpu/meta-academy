@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css?v=202610280534">
+<link rel="stylesheet" href="assets/css/style.css?v=202610280542">
 </head>
 <body id="top" class="home">
 
@@ -56,9 +56,9 @@
 <!-- ===== ヒーロー ===== -->
 <section class="hero" id="hero">
 	<div class="hero-bg">
-		<img src="assets/img/hero_poster.jpg?v=202610280534" alt="" class="hero-still">
-		<video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero_poster.jpg?v=202610280534" aria-hidden="true">
-			<source src="assets/img/hero_video.mp4?v=202610280534" type="video/mp4">
+		<img src="assets/img/hero_poster.jpg?v=202610280542" alt="" class="hero-still">
+		<video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero_poster.jpg?v=202610280542" aria-hidden="true">
+			<source src="assets/img/hero_video.mp4?v=202610280542" type="video/mp4">
 		</video>
 	</div>
 	<div class="hero-inner" id="heroInner">
@@ -166,9 +166,20 @@
 			<h2>コース紹介</h2>
 			<p class="lead">「好き」を入口に、社会で使える力へ。<br class="pc">高校卒業の学びと並行して受けられる、専門コースです。</p>
 		</div>
-		<div class="course-visual"><img src="assets/img/course_tools.jpg?v=202610280534" alt="ドローン・VR・マイク・タブレット・カメラ・鍵盤など、コースで使う道具"><p class="cap">生成AIからドローン、声優まで。「好き」が、仕事の入口になる。</p></div>
+		<div class="course-visual">
+			<div class="cv-stage">
+				<img src="assets/img/course_tools.jpg?v=202610280542" alt="ドローン・VR・マイク・タブレット・カメラ・鍵盤など、コースで使う道具">
+				<svg class="cv-label" viewBox="0 0 1344 390" aria-hidden="true">
+					<defs><linearGradient id="cvg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1D1E85"/><stop offset="1" stop-color="#3A47B8"/></linearGradient></defs>
+					<text x="645" y="178" text-anchor="middle" font-family="Quicksand, 'Noto Sans JP', sans-serif" font-weight="700" font-size="76" letter-spacing="2" fill="url(#cvg)">AI</text>
+					<rect x="612" y="192" width="66" height="4" rx="2" fill="#83D0F4"/>
+					<text x="645" y="252" text-anchor="middle" font-family="Quicksand, 'Noto Sans JP', sans-serif" font-weight="700" font-size="50" letter-spacing="2" fill="url(#cvg)">SNS</text>
+				</svg>
+			</div>
+			<p class="cap">生成AIからドローン、声優まで。「好き」が、仕事の入口になる。</p>
+		</div>
 		<div class="courses">
-			<a href="#contact" class="course"><div class="ic"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>生成AI・ChatGPT</h3><p>質問する・まとめる・書く・作る。AIを「使う側」になるための基礎から実践まで。</p></a>
+			<a href="#contact" class="course"><div class="ic"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>生成AI習得</h3><p>Claude Code、ChatGPT など。質問する・まとめる・書く・作るを実践し、AIを「使う側」になる基礎から応用まで。</p></a>
 			<a href="#contact" class="course"><div class="ic"><i class="fa-solid fa-helicopter"></i></div><h3>ドローン</h3><p>操縦の基礎から、国家ライセンスの取得、空撮・点検などの仕事の現場まで。</p></a>
 			<a href="#contact" class="course"><div class="ic"><i class="fa-solid fa-vr-cardboard"></i></div><h3>メタバース・VR・AR</h3><p>仮想空間のつくり方と使い方を学び、自分のワールドを形にする。</p></a>
 			<a href="#contact" class="course"><div class="ic"><i class="fa-solid fa-music"></i></div><h3>DTM（音楽制作）</h3><p>パソコンで作曲・編曲。配信までを体験する音楽づくりの入門。</p></a>
@@ -375,6 +386,6 @@
 </footer>
 
 <a href="#top" class="to-top" id="toTop" aria-label="ページの先頭へ"><i class="fa-solid fa-chevron-up"></i></a>
-<script src="assets/js/main.js?v=202610280534"></script>
+<script src="assets/js/main.js?v=202610280542"></script>
 </body>
 </html>
