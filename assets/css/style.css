@@ -412,3 +412,10 @@ body.sub main { padding-top: calc(var(--band-h) + 100px); }
 	.cd-h { font-size: 19px; }
 	.mini-courses { grid-template-columns: 1fr; }
 }
+
+/* コース紹介のカード：「詳細はこちら」ボタン（2026-10-28） */
+.course { display: flex; flex-direction: column; }
+.course p { flex: 1; }
+.course .more { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: 16px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 999px; transition: background .2s, gap .2s; }
+.course .more i { font-size: 11px; }
+.course:hover .more { background: var(--navy-2); gap: 12px; }
