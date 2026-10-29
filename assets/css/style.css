@@ -21,6 +21,10 @@
 	--en: "Quicksand", "Noto Sans JP", sans-serif;
 	--band-h: 28px;
 }
+/* 本番（試作の帯なし）：ヘッダーは上辺から12px（PC）/8px（スマホ）＝約3mm */
+body.prod {
+	--band-h: 0px;
+}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 130px; }
 body { margin: 0; font-family: var(--font); color: var(--text); background: var(--white); line-height: 1.9; font-size: 16px; -webkit-font-smoothing: antialiased; }
