@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="darkreader-lock">
+<title>【試作】お問い合わせフォーム｜METAアカデミー株式会社</title>
+<meta name="description" content="生徒・保護者・一般の方からのお問い合わせフォーム。">
+<link rel="icon" type="image/png" href="assets/img/mark-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css?v=202610290501">
+</head>
+<body id="top" class="sub">
+
+<div class="proto-band"><i class="fa-solid fa-triangle-exclamation"></i>このサイトは確認用の試作版です<span class="pb-long">（正式公開前・検索には表示されません）</span></div>
+
+<header class="site-header" id="siteHeader">
+	<div class="hd-inner">
+		<a href="index.html" class="brand"><img src="assets/img/logo.svg" alt="METAアカデミー"></a>
+		<nav class="g-nav" aria-label="メインメニュー">
+			<ul>
+				<li><a href="index.html#school">学校の皆さまへ</a></li>
+				<li><a href="index.html#course">コース紹介</a></li>
+				<li><a href="index.html#system">学びの仕組み</a></li>
+				<li><a href="index.html#partner">講師・パートナー</a></li>
+				<li><a href="index.html#company">会社概要</a></li>
+				<li><a href="index.html#news">お知らせ</a></li>
+			</ul>
+		</nav>
+		<div class="hd-actions">
+			<a href="index.html#contact" class="btn btn-outline"><i class="fa-regular fa-envelope"></i>お問い合わせ</a>
+			<a href="contact-school.html?type=document" class="btn btn-solid"><i class="fa-regular fa-file-lines"></i>資料請求</a>
+		</div>
+		<button class="menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+	</div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+	<ul>
+		<li><a href="index.html#school"><i class="fa-solid fa-school"></i>学校の皆さまへ</a></li>
+		<li><a href="index.html#course"><i class="fa-solid fa-layer-group"></i>コース紹介</a></li>
+		<li><a href="index.html#system"><i class="fa-solid fa-gears"></i>学びの仕組み</a></li>
+		<li><a href="index.html#partner"><i class="fa-solid fa-chalkboard-user"></i>講師・パートナーの方へ</a></li>
+		<li><a href="index.html#student"><i class="fa-solid fa-user-graduate"></i>生徒・保護者の方へ</a></li>
+		<li><a href="index.html#company"><i class="fa-solid fa-building"></i>会社概要</a></li>
+		<li><a href="index.html#news"><i class="fa-regular fa-newspaper"></i>お知らせ</a></li>
+		<li><a href="index.html#contact" class="mm-cta"><i class="fa-regular fa-envelope"></i>お問い合わせ・資料請求</a></li>
+	</ul>
+</div>
+
+<main>
+<!-- ===== 生徒・保護者・一般の方：お問い合わせフォーム ===== -->
+<link rel="stylesheet" href="assets/css/forms.css?v=202610290501">
+<section class="page-hero form-hero">
+	<div class="inner narrow">
+		<a href="index.html#contact" class="back"><i class="fa-solid fa-arrow-left"></i>お問い合わせに戻る</a>
+		<p class="en">Contact</p>
+		<h1><span class="ic"><i class="fa-regular fa-envelope"></i></span>お問い合わせフォーム</h1>
+		<p class="lead">生徒・保護者の皆さま、一般の方からのご質問はこちらから。コースの内容、AI倶楽部、受講についてなど、お気軽にお寄せください。</p>
+	</div>
+</section>
+
+<section class="sec sec-white form-sec">
+	<div class="inner narrow">
+		<form class="form" id="contactForm" action="https://formspree.io/f/TODO_GENERAL" method="POST" data-thanks="thanks.html?type=general" novalidate>
+			<input type="hidden" name="_subject" value="【METAアカデミー】お問い合わせ（生徒・保護者・一般）">
+			<input type="hidden" name="form_type" value="general">
+			<input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+
+			<div class="grid2">
+				<div class="field"><label for="role">お立場 <span class="req">必須</span></label>
+					<select id="role" name="role" required>
+						<option value="">選択してください</option>
+						<option>生徒</option><option>保護者</option><option>学校関係者</option><option>その他</option>
+					</select>
+				</div>
+				<div class="field"><label for="topic">お問い合わせの種類 <span class="req">必須</span></label>
+					<select id="topic" name="topic" required>
+						<option value="">選択してください</option>
+						<option>コースの内容について</option><option>AI倶楽部について</option><option>受講・参加の方法について</option><option>その他</option>
+					</select>
+				</div>
+			</div>
+			<div class="grid2">
+				<div class="field"><label for="name">お名前 <span class="req">必須</span></label><input type="text" id="name" name="name" placeholder="例：山田 太郎" required></div>
+				<div class="field"><label for="kana">ふりがな</label><input type="text" id="kana" name="kana" placeholder="例：やまだ たろう"></div>
+			</div>
+			<div class="field"><label for="school">在籍校（分かれば）</label><input type="text" id="school" name="school" placeholder="例：○○高等学校 ○○キャンパス"></div>
+			<div class="grid2">
+				<div class="field"><label for="email">メールアドレス <span class="req">必須</span></label><input type="email" id="email" name="email" placeholder="例：name@example.com" required></div>
+				<div class="field"><label for="tel">電話番号</label><input type="tel" id="tel" name="tel" placeholder="例：090-0000-0000"></div>
+			</div>
+			<div class="field"><label for="message">お問い合わせ内容 <span class="req">必須</span></label><textarea id="message" name="message" rows="6" placeholder="ご質問の内容をお書きください。" required></textarea></div>
+
+			<label class="agree"><input type="checkbox" name="agree" value="同意する" required><span>ご入力いただいた個人情報は、お問い合わせへの回答にのみ使用し、ご本人の同意なく第三者に提供しません。</span></label>
+
+			<div class="form-actions">
+				<button type="submit" class="btn btn-solid btn-lg"><i class="fa-regular fa-paper-plane"></i>送信する</button>
+				<p class="form-msg" id="formMsg" role="alert" aria-live="polite"></p>
+			</div>
+		</form>
+	</div>
+</section>
+<script src="assets/js/forms.js?v=202610290501" defer></script>
+
+</main>
+
+<footer class="site-footer">
+	<div class="inner">
+		<div class="ft-top">
+			<div class="ft-brand">
+				<img src="assets/img/logo.svg" alt="METAアカデミー">
+				<p>METAアカデミー株式会社<br>〒171-0022 東京都豊島区南池袋2-17-7 アップルーヴメント13階</p>
+			</div>
+			<ul class="ft-nav">
+				<li><a href="index.html#school">学校の皆さまへ</a></li>
+				<li><a href="index.html#course">コース紹介</a></li>
+				<li><a href="index.html#system">学びの仕組み</a></li>
+				<li><a href="index.html#partner">講師・パートナーの方へ</a></li>
+				<li><a href="index.html#student">生徒・保護者の方へ</a></li>
+				<li><a href="index.html#company">会社概要</a></li>
+				<li><a href="index.html#news">お知らせ</a></li>
+				<li><a href="index.html#contact">お問い合わせ</a></li>
+			</ul>
+		</div>
+		<div class="ft-bottom">
+			<p class="ft-tagline">AIを学び、AIとともに考え、社会に新たな価値を創造する。</p>
+			<p class="copy">&copy; 2026 META Academy Inc.</p>
+		</div>
+	</div>
+</footer>
+
+<a href="index.html#top" class="to-top" id="toTop" aria-label="ページの先頭へ"><i class="fa-solid fa-chevron-up"></i></a>
+<script src="assets/js/main.js?v=202610290501"></script>
+</body>
+</html>
