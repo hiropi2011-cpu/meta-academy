@@ -426,22 +426,23 @@ body.sub main { padding-top: calc(var(--band-h) + 100px); }
 
 /* ===== 会社概要：池袋オフィス（アップルーヴメント）の写真を右側の背景に ===== */
 #company { position: relative; overflow: hidden; }
-#company .company-photo { position: absolute; top: 0; right: 0; bottom: 0; width: 60%; background: url(../img/office_ikebukuro.jpg) right center / auto 100% no-repeat; }
-/* 左から淡い水色→透明のグラデーションで、表の文字を読みやすくしつつ写真の右半分をそのまま見せる */
-#company .company-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--light) 0%, var(--light) 18%, rgba(242, 248, 253, 0.92) 34%, rgba(242, 248, 253, 0.55) 52%, rgba(242, 248, 253, 0.12) 72%, rgba(242, 248, 253, 0) 100%); }
+/* 写真（切り抜き255×390）：上端を表の上端（96px余白＋見出し156px）にそろえ、高さは表と同じ。右端は本文の右端にそろえる */
+#company .company-photo { position: absolute; top: 252px; bottom: 96px; right: max(24px, calc((100% - 1120px) / 2)); width: 340px; background: url(../img/office_ikebukuro.jpg) right top / auto 100% no-repeat; border-radius: 14px; -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, rgba(0, 0, 0, 0.6) 86%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 72%, rgba(0, 0, 0, 0.6) 86%, transparent 100%); }
+/* 左端だけ淡い水色→透明で、背景になじませる（下の車や歩道はマスクで溶かす） */
+#company .company-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--light) 0%, rgba(242, 248, 253, 0.6) 10%, rgba(242, 248, 253, 0) 30%); }
 #company .company-inner { position: relative; z-index: 1; }
 #company .sec-head { text-align: left; margin-bottom: 36px; }
 #company .company { max-width: 640px; box-shadow: 0 14px 44px rgba(29, 30, 133, 0.10); }
-#company .company-cap { position: absolute; right: 28px; bottom: 22px; z-index: 1; margin: 0; font-size: 12.5px; font-weight: 700; color: var(--navy); background: rgba(255, 255, 255, 0.86); padding: 7px 14px; border-radius: 999px; backdrop-filter: blur(4px); }
+#company .company-cap { position: absolute; right: max(24px, calc((100% - 1120px) / 2)); bottom: 110px; z-index: 1; margin: 0; font-size: 12.5px; font-weight: 700; color: var(--navy); background: rgba(255, 255, 255, 0.86); padding: 7px 14px; border-radius: 999px; backdrop-filter: blur(4px); }
 #company .company-cap i { color: var(--sky); margin-right: 6px; }
 @media (max-width: 1024px) {
-	#company .company-photo { width: 56%; }
-	#company .company { max-width: 560px; }
+	#company .company-photo { width: 280px; }
+	#company .company { max-width: 520px; }
 }
 @media (max-width: 700px) {
 	/* スマホ：写真は上の帯（縦写真なので建物の上半分が見える位置）にして、表はその下 */
 	#company { padding-top: 0; }
-	#company .company-photo { position: relative; width: 100%; height: 220px; background-position: center 32%; background-size: cover; }
+	#company .company-photo { position: relative; top: auto; right: auto; bottom: auto; width: 100%; height: 220px; background-position: center 30%; background-size: cover; border-radius: 0; -webkit-mask-image: none; mask-image: none; }
 	#company .company-photo::after { background: linear-gradient(180deg, rgba(242, 248, 253, 0) 55%, var(--light) 100%); }
 	#company .company-cap { position: absolute; top: 196px; right: 14px; bottom: auto; font-size: 11.5px; padding: 6px 11px; }
 	#company .company-inner { padding-top: 40px; }
