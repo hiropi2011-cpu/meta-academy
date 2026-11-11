@@ -449,3 +449,10 @@ body.sub main { padding-top: calc(var(--band-h) + 100px); }
 	#company .sec-head { text-align: center; }
 	#company .company { max-width: none; }
 }
+
+/* コースが10個になった（ネイル検定を追加・2026-11-11）
+   3列のとき、最後の1枚だけが左に残らないよう中央に置く。詳細ページの「ほかのコース」は9個＝3列×3段にする */
+@media (min-width: 1025px) {
+	.courses > .course:last-child:nth-child(3n+1) { grid-column: 2; }
+	.mini-courses { grid-template-columns: repeat(3, 1fr); }
+}
