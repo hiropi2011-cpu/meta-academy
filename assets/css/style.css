@@ -450,9 +450,8 @@ body.sub main { padding-top: calc(var(--band-h) + 100px); }
 	#company .company { max-width: none; }
 }
 
-/* コースが10個になった（ネイル検定を追加・2026-11-11）
-   3列のとき、最後の1枚だけが左に残らないよう中央に置く。詳細ページの「ほかのコース」は9個＝3列×3段にする */
+/* コースの数が3で割って1余るとき（10個など）、3列の最後の1枚だけが左に残らないよう中央に置く（2026-11-11）
+   2026-11-13 コースが9個になった → 3列×3段。詳細ページの「ほかのコース」は8個＝元の4列×2段に戻した */
 @media (min-width: 1025px) {
 	.courses > .course:last-child:nth-child(3n+1) { grid-column: 2; }
-	.mini-courses { grid-template-columns: repeat(3, 1fr); }
 }
