@@ -475,10 +475,11 @@ body.sub main { padding-top: calc(var(--band-h) + 100px); }
 .mv-tab i { font-size: 10px; }
 @keyframes mv-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes mv-pulse { 0% { box-shadow: 0 0 0 0 rgba(131, 208, 244, 0.7); } 70% { box-shadow: 0 0 0 9px rgba(131, 208, 244, 0); } 100% { box-shadow: 0 0 0 0 rgba(131, 208, 244, 0); } }
-@media (prefers-reduced-motion: reduce) { .mv-banner, .mv-ai { animation: none; } }
-/* バナーの分だけ「ページの先頭へ」とフッターの最下部を上げる（重ならないように） */
-.has-mv .to-top { bottom: 132px; }
-.has-mv .site-footer { padding-bottom: 140px; }
+@media (prefers-reduced-motion: reduce) { .mv-banner, .mv-ai, .mv-help { animation: none; } }
+/* バナーとヘルプの分だけ「ページの先頭へ」とフッターの最下部をずらす（重ならないように）。
+   PCの「ページの先頭へ」はバナーの左どなり（バナーの上はヘルプが使う） */
+.has-mv .to-top { bottom: 20px; right: 376px; }
+.has-mv .site-footer { padding-bottom: 190px; }
 /* スマホ：画面の下に横長の帯。「新しいタブで開く」はアイコンだけ */
 @media (max-width: 700px) {
 	.mv-banner { left: 12px; right: 12px; bottom: 12px; width: auto; display: flex; align-items: stretch; border-radius: 14px; }
@@ -493,5 +494,46 @@ body.sub main { padding-top: calc(var(--band-h) + 100px); }
 	.mv-tab span { display: none; }
 	.mv-tab i { font-size: 13px; }
 	.has-mv .to-top { bottom: 86px; right: 14px; }
-	.has-mv .site-footer { padding-bottom: 96px; }
+	.has-mv .site-footer { padding-bottom: 140px; }
+}
+
+/* アバターの変え方（開閉式のヘルプ。2026-11-17 石島さんの相談）
+   開け閉めは HTML の details だけ。窓が閉じているときはバナーのすぐ上（上へ開く）。
+   窓が開いている間は metaverse.js が is-side（PC：窓の左横・下へ開く）か is-above（スマホ：窓の上・上へ開く）を付け、
+   窓（z-index 2147483001）より手前に出す */
+.mv-help { position: fixed; right: 20px; bottom: calc(20px + var(--mv-bh, 125px) + 8px); z-index: 821; width: 344px; max-height: calc(100vh - var(--mv-bh, 125px) - 120px); overflow-y: auto; background: #fff; border: 1px solid rgba(29, 30, 133, 0.14); border-radius: 14px; box-shadow: 0 10px 28px rgba(29, 30, 133, 0.18); color: #2A2B45; animation: mv-in .5s ease .7s both; }
+.mv-help summary { display: flex; align-items: center; gap: 10px; padding: 9px 14px 9px 10px; cursor: pointer; list-style: none; font-size: 13.5px; font-weight: 700; color: var(--navy); user-select: none; }
+.mv-help summary::-webkit-details-marker { display: none; }
+.mv-help summary:hover .mv-help-t { text-decoration: underline; text-underline-offset: 3px; }
+.mv-help summary:focus-visible { outline: 2px solid var(--sky); outline-offset: -2px; border-radius: 14px; }
+.mv-help-ic { flex: none; width: 28px; height: 28px; border-radius: 8px; background: rgba(131, 208, 244, 0.22); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+.mv-help-t { flex: 1; }
+.mv-help-ar { font-size: 11px; color: #6B6E99; transition: transform .2s; }
+.mv-help[open] .mv-help-ar { transform: rotate(180deg); }
+.mv-help-body { padding: 2px 16px 14px; border-top: 1px solid rgba(29, 30, 133, 0.08); }
+.mv-help-lead { margin: 10px 0 8px; font-size: 12.5px; line-height: 1.65; color: #4A4D70; }
+.mv-help-steps { margin: 0; padding: 0; list-style: none; counter-reset: mvstep; }
+.mv-help-steps li { position: relative; padding: 5px 0 5px 30px; font-size: 13px; line-height: 1.6; counter-increment: mvstep; }
+.mv-help-steps li::before { content: counter(mvstep); position: absolute; left: 0; top: 6px; width: 21px; height: 21px; border-radius: 50%; background: var(--navy); color: #fff; font-family: var(--en); font-size: 11.5px; font-weight: 700; line-height: 21px; text-align: center; }
+.mv-key { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; margin: 0 3px; border-radius: 50%; background: #3B3F4C; color: #fff; font-size: 10px; vertical-align: -4px; }
+/* 窓が開いている間：バナーは窓の下に隠れるので消し、ヘルプを窓より手前へ */
+.mv-open .mv-banner { visibility: hidden; }
+.mv-open .mv-help { z-index: 2147483002; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28); }
+.mv-help.is-side { bottom: auto; left: auto; }
+.mv-help.is-side .mv-help-ar { transform: rotate(180deg); }
+.mv-help.is-side[open] .mv-help-ar { transform: none; }
+.mv-help.is-above { left: 12px; right: auto; width: auto; }
+.mv-help.is-above[open] { right: 12px; }
+/* スマホで窓が開いている間は、窓の上の空きが狭いので、前置きと「バナーを押して開く」を省いて4つの手順だけにする */
+.mv-help.is-above .mv-help-lead, .mv-help.is-above .mv-help-steps li:first-child { display: none; }
+.mv-help.is-above summary { padding-top: 6px; padding-bottom: 6px; }
+.mv-help.is-above .mv-help-body { padding: 3px 14px 2px; }
+.mv-help.is-above .mv-help-steps li { padding: 2px 0 2px 28px; font-size: 12.5px; line-height: 1.45; }
+.mv-help.is-above .mv-help-steps li::before { top: 2px; width: 20px; height: 20px; line-height: 20px; font-size: 11px; }
+/* スマホ：帯のすぐ上の左に小さく。開くと横いっぱい */
+@media (max-width: 700px) {
+	.mv-help { left: 12px; right: auto; width: auto; bottom: calc(12px + var(--mv-bh, 62px) + 8px); max-height: calc(100vh - var(--mv-bh, 62px) - 110px); border-radius: 12px; }
+	.mv-help[open] { right: 12px; }
+	.mv-help summary { padding: 7px 12px 7px 8px; font-size: 12.5px; gap: 8px; }
+	.mv-help-ic { width: 24px; height: 24px; font-size: 11px; border-radius: 7px; }
 }
